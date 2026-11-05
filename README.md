@@ -1,78 +1,72 @@
 # entor-ui
 
-Public **Entor design system** for Next.js apps: CSS tokens, themes, and React UI primitives.
+Public **Entor design system** for Next.js: one package with CSS tokens, themes, fonts, and React UI.
 
-**Repository:** https://github.com/ChrisPap261/entor-ui
+**https://github.com/ChrisPap261/entor-ui**
 
-## Packages
-
-| Package | Description |
-|---------|-------------|
-| [`@entor/theme`](./packages/entor-theme) | Colors, radius, themes (`theme-casual`, …), `.widget-card`, `.header-btn`, fonts |
-| [`@entor/ui`](./packages/entor-ui) | `WidgetScroll`, `FilterTabs`, `Checkbox`, `viewShellClass`, `cn` |
-
-Full class inventory: [`packages/entor-theme/DESIGN.md`](./packages/entor-theme/DESIGN.md).
-
-## Install in your app
+## Install
 
 ```bash
-npm install github:ChrisPap261/entor-ui#v1.0.0:packages/entor-theme
-npm install github:ChrisPap261/entor-ui#v1.0.0:packages/entor-ui
+npm install github:ChrisPap261/entor-ui#v1.0.1
 ```
 
-Or in `package.json`:
+`package.json`:
 
 ```json
 {
   "dependencies": {
-    "@entor/theme": "github:ChrisPap261/entor-ui#v1.0.0:packages/entor-theme",
-    "@entor/ui": "github:ChrisPap261/entor-ui#v1.0.0:packages/entor-ui",
+    "@entor/ui": "github:ChrisPap261/entor-ui#v1.0.1",
     "lucide-react": "^1.37.0"
   }
 }
 ```
 
-Pin a **tag** (`v1.0.0`) or commit SHA — avoid `#main` in production.
+Pin a **tag** (`v1.0.1`) when you want stable builds.
 
-### Tailwind v4 + Next.js
+## Setup (Next.js + Tailwind v4)
 
-**`src/app/globals.css`**
+**`globals.css`**
 
 ```css
 @import "tailwindcss";
-@import "../../node_modules/@entor/theme/src/entor.css";
+@import "../../node_modules/@entor/ui/src/entor.css";
 ```
-
-If your bundler resolves package exports, you can use `@import "@entor/theme/entor.css";` instead.
 
 **`layout.tsx`**
 
 ```tsx
-import { entorFontClassNames } from "@entor/theme/fonts";
-import { appearanceBootstrapScript } from "@entor/theme/appearance";
+import { entorFontClassNames } from "@entor/ui/fonts";
+import { appearanceBootstrapScript } from "@entor/ui/appearance";
 
 <html className={`${entorFontClassNames()} theme-casual antialiased`}>
+  <head>
+    <script dangerouslySetInnerHTML={{ __html: appearanceBootstrapScript() }} />
+  </head>
 ```
 
 **`next.config.ts`**
 
 ```ts
-transpilePackages: ["@entor/theme", "@entor/ui"],
+transpilePackages: ["@entor/ui"],
 ```
 
-## Starter template
+## Components & classes
 
-```bash
-cd templates/entor-starter
-npm install
-npm run dev
+```tsx
+import { WidgetScroll, FilterTabs, Checkbox, viewShellClass } from "@entor/ui";
 ```
 
-Opens http://localhost:3001.
+Use CSS classes: `widget-card`, `header-btn`, `display-title`, `gap-gutter`, `border-line`, …
 
-## Versioning
+Full list: [DESIGN.md](./DESIGN.md)
 
-Tags on this repo (`v1.0.0`, `v1.1.0`, …). Bump the `#v…` ref in consuming apps when you want updates.
+## Legacy `@entor/theme`
+
+Merged into `@entor/ui`. Use `@entor/ui/entor.css` and `@entor/ui/fonts` instead of `@entor/theme/*`.
+
+## Starter
+
+See [`templates/entor-starter`](./templates/entor-starter).
 
 ## License
 
