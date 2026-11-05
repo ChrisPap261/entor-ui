@@ -29,7 +29,7 @@ Pin a **tag** (`v1.0.1`) when you want stable builds.
 
 ```css
 @import "tailwindcss";
-@import "../../node_modules/@entor/ui/src/entor.css";
+@import "@entor/ui/entor.css";
 ```
 
 **`layout.tsx`**
