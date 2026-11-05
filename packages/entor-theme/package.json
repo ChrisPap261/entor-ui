@@ -1,0 +1,15 @@
+{
+  "name": "@entor/theme",
+  "version": "1.0.0",
+  "description": "Entor design tokens, themes, and global UI styles (Tailwind v4)",
+  "license": "MIT",
+  "exports": {
+    ".": "./src/index.ts",
+    "./entor.css": "./src/entor.css",
+    "./fonts": "./src/fonts.ts",
+    "./appearance": "./src/appearance.ts"
+  },
+  "peerDependencies": {
+    "next": ">=15.0.0"
+  }
+}

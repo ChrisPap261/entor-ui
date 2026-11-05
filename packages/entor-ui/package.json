@@ -1,0 +1,16 @@
+{
+  "name": "@entor/ui",
+  "version": "1.0.0",
+  "description": "Entor React UI primitives (cards, scroll, tabs, checkbox)",
+  "license": "MIT",
+  "exports": {
+    ".": "./src/index.ts",
+    "./cn": "./src/cn.ts",
+    "./view-shell": "./src/view-shell.ts"
+  },
+  "peerDependencies": {
+    "lucide-react": ">=0.400.0",
+    "react": ">=19.0.0",
+    "react-dom": ">=19.0.0"
+  }
+}
